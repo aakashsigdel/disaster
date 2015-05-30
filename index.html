@@ -153,48 +153,14 @@
                     <div class="col-md-9 div-center">
                         <hr>
                     </div>
-
+                    <div ng-repeat="label in getAssesmentData()">
                     <div class="col-md-9">
-                        <h4 class="text-assesment">Go Go Go!</h4>
+                        <h4 class="text-assesment" ng-bind="label.name " + "label.address">Go Go Go!</h4>
                     </div>
                     <div class="col-md-3">
                     </div>
 
-                    <div class="col-md-9">
-                        <h4 class="text-assesment">Go Go Go!</h4>
-                    </div>
-                    <div class="col-md-3">
-                    </div>
-
-                    <div class="col-md-9">
-                        <h4 class="text-assesment">Go Go Go!</h4>
-                    </div>
-                    <div class="col-md-3">
-                    </div>
-
-                    <div class="col-md-9">
-                        <h4 class="text-assesment">Go Go Go!</h4>
-                    </div>
-                    <div class="col-md-3">
-                    </div>
-
-                    <div class="col-md-9">
-                        <h4 class="text-assesment">Go Go Go!</h4>
-                    </div>
-                    <div class="col-md-3">
-                    </div>
-
-                    <div class="col-md-9">
-                        <h4 class="text-assesment">Go Go Go!</h4>
-                    </div>
-                    <div class="col-md-3">
-                    </div>
-
-                    <div class="col-md-9">
-                        <h4 class="text-assesment">Go Go Go!</h4>
-                    </div>
-                    <div class="col-md-3">
-                    </div>
+                    
 
                     <div class="pull-right">
                         <h4>
@@ -243,7 +209,11 @@
                 </div>
             </div>
             <div class="row">
-                
+                <!-- <div ng-repeat="(label, value) in getAssesmentDatum(param)">
+                    <div>
+                        <label ng-bind="label"></label>
+                        <label ng-bind="value"></label>
+                </div> -->
             </div>
         </div>
     </section>
