@@ -1,15 +1,17 @@
-angular.module('AssesmentApp')
-	.controller('reportCtrl', ['$scope', 'Service', function($scope, Service) {
-		$scope.getAssesmentDatum = function(assesmentId) {
-			return Service.getAssesmentDatum(assesmentId);
+angular.module('AssessmentApp', [])
+	.controller('assessmentListCtrl', ['$scope', 'AssessmentService', function($scope, AssessmentService) {
+		$scope.list = AssessmentService.getAssessmentData();
+		$scope.id = '';
+		$scope.setId = function(id) {
+			$scope.id = id;
 		}
-
-		$scope.getAssesmentData = function() {
-			return Service.getAssesmentData();
-		}
-	}]),
-	controller('assesmentListCtrl' ['$scope', 'Service', function($scope, Service) {
-		$scope.getAssesmentData = function() {
-			return Service.getAssesmentData();
-		}
+		//console.log(AssessmentService.getAssessmentData());
+		
 	}])
+	/*.controller('modalCtrl', ['$scope', 'AssessmentService',, function($scope, AssessmentService) {
+		//$scope.list = AssessmentService.getAssessmentDatum(assesmentId);
+		
+		AssessmentService.getAssessmentDatum(assesmentId).then(function(response) {
+			console.log(response.data);
+		});*/
+	//}])

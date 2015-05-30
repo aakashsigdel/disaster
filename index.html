@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Disaster Assesment Tool</title>
+    <title>Disaster Assessment Tool</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
 </head>
 
-<body id="page-top" class="index" ng-app="AssesmentApp">
+<body id="page-top" class="index" ng-app="AssessmentApp">
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Disaster Assesment</a>
+                <a class="navbar-brand" href="#page-top">Disaster Assessment</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,7 +47,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio">Assesment</a>
+                        <a href="#portfolio">Assessment</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#about">Inventory</a>
@@ -64,22 +64,22 @@
 
     <!-- Header -->
     <header>
-        <div class="container" ng-controller="indexCtrl">
+        <div class="container" >
             <div class="row">
                 <div class="col-lg-4">
                     <img class="img-responsive" src="img/profile.png" alt="">
                     <div class="intro-text">
-                        <span class="name">My Group</span>
+                        <span class="name">Chitwan Youth CLub</span>
                         <hr class="star-light">
-                        <span class="skills">Group Desc</span>
-                        <div>
+                        <span class="skills">Young Enhtusastic people trying to build a better Nepal</span>
+                        <!-- <div>
                             <span class="skills">Group Members</span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="intro-text">
-                        <span class="skills">Number of Assesment</span>
+                        <span class="skills">Number of Assessment</span>
                         <div><span>100</span></div>
                         <br>
                     </div>
@@ -110,10 +110,10 @@
 
     <!-- Portfolio Grid Section -->
     <section id="portfolio">
-        <div class="container" ng-controller="assesmentCtrl">
+        <div class="container" ng-controller="assessmentListCtrl">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Assesment</h2>
+                    <h2>Assessment</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -125,25 +125,25 @@
                     </div>
 
                     <div class="col-md-12">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-3">
-                            <h4 class="text-assesment">Hello there</h4>
+                        <!-- <div class="col-md-3"></div> -->
+                        <div class="col-md-5">
+                            <h4 class="text-assessment">Sindhupalchowk, Gire</h4>
                         </div>
-                        <div class="col-md-3">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="ture"></span>    
+                        <div class="col-md-2"></div>
+                        <div class="col-md-5">
+                            <span class="glyphicon glyphicon-option-horizontal" aria-hidden="ture"></span>    
                         </div>
-                        <div class="col-md-3"></div>
                     </div>
 
                     <div class="col-md-12">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-3">
-                            <h4 class="text-assesment">Go Go Go!</h4>
+                        <!-- <div class="col-md-3"></div> -->
+                        <div class="col-md-5">
+                            <h4 class="text-assessment">Gorkha, Ram Shah Village</h4>
                         </div>
-                        <div class="col-md-3">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="ture"></span>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-5">
+                            <span class="glyphicon glyphicon-option-horizontal" aria-hidden="ture"></span>
                         </div>
-                        <div class="col-md-3"></div>
                     </div>
 
                 </div>
@@ -153,24 +153,55 @@
                     <div class="col-md-9 div-center">
                         <hr>
                     </div>
-                    <div ng-repeat="label in getAssesmentData()">
-                    <div class="col-md-9">
-                        <h4 class="text-assesment" ng-bind="label.name " + "label.address">Go Go Go!</h4>
+                    <div ng-repeat="label in list.assessment">
+                        <div class="col-md-12">
+                            <!-- <div class="col-md-4"></div> -->
+                            <div class="col-md-5">
+                                <!-- <a href="#"> <h4 class="text-assessment">{{label.district}}, {{label.vdc}}</h4></a> -->
+                                <a data-toggle="modal" data-target="#myModal" ng-click="setId(label.id)">
+                                    <h4 class="text-assessment">{{label.district}}, {{label.vdc}}</h4>
+                                </a>
+                            </div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-5">
+                                <span class="glyphicon glyphicon-ok" aria-hidden="ture"></span>
+                            </div>
+
+                            
+                            
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                    </div>
+                </div>
+                    <!-- <div class="col-md-3">
+                    </div> -->
 
                     
 
-                    <div class="pull-right">
-                        <h4>
-                            <small>View More</small>
-                        </h4>  
-                    </div>  
-                </div>
-                <div></div>
-                </div>
-            </div>
+                <div class="col-md-4 pull-right">
+                    <h4>
+                        <small>View More</small>
+                    </h4>  
+                </div> 
+
+                <div class="modal fade" id="myModal" role="dialog" ng-controller="modalCtrl">
+                    <div class="modal-dialog modal-lg">
+                    
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p>Some text in the modal.</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                      
+                    </div>
+                </div> 
         </div>
     </section>
 
@@ -185,31 +216,27 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+                    <p></p>
                 </div>
                 <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+                    <p></p>
                 </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
-                    </a>
-                </div>
+                
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
-        <div class="container" ng-controller="reportCtrl">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Contact Me</h2>
+                    <h2>Contact Us</h2>
                     <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
-                <!-- <div ng-repeat="(label, value) in getAssesmentDatum(param)">
+                <!-- <div ng-repeat="(label, value) in getAssessmentDatum(param)">
                     <div>
                         <label ng-bind="label"></label>
                         <label ng-bind="value"></label>
@@ -224,11 +251,11 @@
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-4">
-                        <h3>Location</h3>
-                        <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                        <h3>Kathmandu</h3>
+                        <p>Balkumari<br>Lalitpur</p>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>Around the Web</h3>
+                        <h3>Disaster Management</h3>
                         <ul class="list-inline">
                             <li>
                                 <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
@@ -248,8 +275,8 @@
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                        <h3>Disaster Management</h3>
+                        <p>Disaster Assessment App to assess the disaster situation on affected areas.</p>
                     </div>
                 </div>
             </div>
@@ -258,7 +285,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Your Website 2014
+                        Copyright &copy; Disaster Management
                     </div>
                 </div>
             </div>
@@ -399,10 +426,10 @@
                             <h2>Project Title</h2>
                             <hr class="star-primary">
                             <img src="img/portfolio/game.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <p></p>
                             <ul class="list-inline item-details">
                                 <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    <strong><a href="http://startbootstrap.com">Disaster Assessment</a>
                                     </strong>
                                 </li>
                                 <li>Date:
@@ -410,7 +437,7 @@
                                     </strong>
                                 </li>
                                 <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    <strong><a href="http://startbootstrap.com">Disaster Management</a>
                                     </strong>
                                 </li>
                             </ul>
@@ -433,13 +460,13 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Title</h2>
+                            <h2>Disaster Assessment</h2>
                             <hr class="star-primary">
                             <img src="img/portfolio/safe.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <p></p>
                             <ul class="list-inline item-details">
                                 <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    <strong><a href="http://startbootstrap.com">Disastrer Assessment</a>
                                     </strong>
                                 </li>
                                 <li>Date:
@@ -447,7 +474,7 @@
                                     </strong>
                                 </li>
                                 <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    <strong><a href="http://startbootstrap.com">Disaster Management</a>
                                     </strong>
                                 </li>
                             </ul>
@@ -470,13 +497,13 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Title</h2>
+                            <h2>Disaster Assessment</h2>
                             <hr class="star-primary">
                             <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <p></p>
                             <ul class="list-inline item-details">
                                 <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    <strong><a href="http://startbootstrap.com">Disaster Assessment</a>
                                     </strong>
                                 </li>
                                 <li>Date:
@@ -484,7 +511,7 @@
                                     </strong>
                                 </li>
                                 <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    <strong><a href="http://startbootstrap.com">Disaster Management</a>
                                     </strong>
                                 </li>
                             </ul>
@@ -496,16 +523,23 @@
         </div>
     </div>
 
+
+    
+
     
    <!-- jQuery -->
     <script src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/angular.min.js"></script>
-    <script type="text/javascript" src="js/angular-route.js"></script>
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/lib/controller.js"></script>
+    <script type="text/javascript" src="js/lib/service.js"></script>
+    
+    
+
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
     <script src="js/classie.js"></script>
     <script src="js/cbpAnimatedHeader.js"></script>
 

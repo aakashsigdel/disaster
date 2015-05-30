@@ -1,32 +1,38 @@
-angular('AssesmentApp').
-	service('AssesmentService',['$http', function($http){
+angular.module('AssessmentApp')
+	.factory('AssessmentService',['$http', function($http){
+		return {
+			getAssessmentData: function() {
 
-		getAssesmentData: function(){
-
-			var data = {
-				error: 'false',
-				success: 'true',
-				msg: 'Test message',
-				data: [
-				{
-					name: 'Bimal Magar',
-					address: 'Butwal',
-					fathername: 'Yam magar',
-					phone: '9865326598',
-					relief: 'medium'
-
-				},
-				{
-					name: 'Bimal Magar123',
-					address: 'Butwal123',
-					fathername: 'Yam magar123',
-					phone: '9865326598123',
-					relief: 'medium1232'
-
-				},
-
-				]
-			};
-			return data;
-		}
+				return {
+					assessment: [{
+						id: 101,
+						district: 'Dolakha',
+						vdc: 'Charimara',
+						persons:[{name: 'Aakash Sigdel', sex: 'Male', age: 24, occupation: 'Farmer', caste: 'Sukla', risk: 'High'},
+							{name: 'Bimal Gharti Magar', sex: 'Male', age: 22, occupation: 'Engineer', caste: 'Magar', risk: 'High'},
+							{name: 'Suntali Ram Shah', sex: 'Female', age: 28, occupation: 'Doctor', caste: 'Sukla', risk: 'Medium'}
+					]},
+					{
+						id: 102,
+						district: 'Gorkha',
+						vdc: 'RamDaiGaun',
+						persons:[{name: 'Aakash Sigdel', sex: 'Male', age: 24, occupation: 'Farmer', caste: 'Sukla', risk: 'High'},
+								{name: 'Bimal Gharti Magar', sex: 'Male', age: 22, occupation: 'Engineer', caste: 'Magar', risk: 'High'},
+								{name: 'Suntali Ram Shah', sex: 'Female', age: 28, occupation: 'Doctor', caste: 'Sukla', risk: 'Medium'}
+					]},
+					{
+						id: 103,
+						district: 'Makwanpur',
+						vdc: 'HilleChaurGaun',
+						persons:[{name: 'Aakash Sigdel', sex: 'Male', age: 24, occupation: 'Farmer', caste: 'Sukla', risk: 'High'},
+								{name: 'Bimal Gharti Magar', sex: 'Male', age: 22, occupation: 'Engineer', caste: 'Magar', risk: 'High'},
+								{name: 'Suntali Ram Shah', sex: 'Female', age: 28, occupation: 'Doctor', caste: 'Sukla', risk: 'Medium'}
+					]}]
+				};
+			}/*,
+			getAssessmentDatum: function(assessmentId) {
+				return $http.get('192.168.88.187:3000/api/assessment/' + id);
+			}*/
+		}		
+			
 	}]);
